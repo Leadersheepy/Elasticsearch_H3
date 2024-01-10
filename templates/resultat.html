@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Résultats de recherche</title>
+</head>
+<body>
+    <h1>Résultats de recherche :</h1>
+    <ul>
+        {% for resultat in resultats %}
+            <li>{{ resultat.titre }} - {{ resultat.auteur }}</li>
+        {% endfor %}
+    </ul>
+    <a href="/">Retour à la page d'accueil</a>
+</body>
+</html>

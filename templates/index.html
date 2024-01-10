@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Bibliothèque</title>
+</head>
+<body>
+    <h1>Bienvenue dans la bibliothèque</h1>
+
+  <!-- ... -->
+<h2>Tous les livres :</h2>
+<div>
+    {% for livre in tous_les_livres %}
+        <p>{{ livre.titre }} - {{ livre.auteur }}</p>
+    {% endfor %}
+</div>
+<!-- ... -->
+
+</body>
+</html>
