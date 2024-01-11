@@ -1,20 +1,28 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Bibliothèque</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
 <body>
-    <h1>Bienvenue dans la bibliothèque</h1>
-
-  <!-- ... -->
-<h2>Tous les livres :</h2>
-<div>
-    {% for livre in tous_les_livres %}
-        <p>{{ livre.titre }} - {{ livre.auteur }}</p>
-    {% endfor %}
-</div>
-<!-- ... -->
-
+    <div class="container mt-5">
+        <h1 class="mb-4">Books</h1>
+        <form method="post" action="/">
+            <div class="form-group">
+                <label for="recherche">Recherche:</label>
+                <input type="text" class="form-control" name="recherche" id="recherche">
+            </div>
+            <button type="submit" class="btn btn-primary">Rechercher</button>
+        </form>
+        <ul class="list-group mt-3">
+            {% for livre in livres %}
+                <li class="list-group-item">{{ livre.titre }} - {{ livre.auteur }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    <!-- Ajoutez les scripts Bootstrap à la fin du corps -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </body>
+
 </html>
