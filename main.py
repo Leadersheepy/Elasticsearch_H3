@@ -1,8 +1,13 @@
 from flask import Flask, render_template, request
 from elasticsearch import Elasticsearch, RequestError
 from datetime import datetime
+import logging
 
 app = Flask(__name__)
+
+# Configuration de la journalisation
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 # Connexion à Elasticsearch
 es = Elasticsearch(hosts="http://localhost:9200")
@@ -30,11 +35,13 @@ if not es.indices.exists(index="livres-index"):
             }
             indexer_document(livre_doc)
     except RequestError as e:
-        print(f"Une erreur s'est produite lors de la création de l'index : {e}")
-
+        logger.error(f"Une erreur s'est produite lors de la création de l'index : {e}")
 
 @app.route('/')
 def accueil():
+    # Exemple de production de logs
+    logger.info('Accès à la page d\'accueil!')
+
     # Récupérer tous les livres de la base de données Elasticsearch
     resp = es.search(index="livres-index", body={"query": {"match_all": {}}})
     livres = [hit['_source'] for hit in resp['hits']['hits']]
