@@ -5,4 +5,4 @@ http.host: "0.0.0.0"
 http.port: 9200
 
 # Configurations de monitoring (X-Pack)
-#xpack.monitoring.elasticsearch.hosts: ["http://elasticsearch:9200"]
+xpack.monitoring.elasticsearch.hosts: ["http://elasticsearch:9200"]
